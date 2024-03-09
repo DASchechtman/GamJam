@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cvyyj76t4dvag"]
+
+[node name="Sandbox" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(0, 221, 0, 647, 1154, 647, 1154, 207, 1044, 207, 1044, 543, 662, 543, 660, 457, 496, 455, 494, 532, 130, 533, 130, 217)
