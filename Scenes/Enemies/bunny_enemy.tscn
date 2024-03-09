@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://dvncmpmqdbhq1"]
+
+[ext_resource type="Texture2D" uid="uid://b60xk5be1ypd0" path="res://Art/bunnypack_assets/bunnypack_spritesheets/bunny_idle_strip4.png" id="1_shxtu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_syfuw"]
+atlas = ExtResource("1_shxtu")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exdjv"]
+atlas = ExtResource("1_shxtu")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p21ea"]
+atlas = ExtResource("1_shxtu")
+region = Rect2(80, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8alg"]
+atlas = ExtResource("1_shxtu")
+region = Rect2(120, 0, 40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ovybf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_syfuw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exdjv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p21ea")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8alg")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="BunnyEnemy" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -14)
+sprite_frames = SubResource("SpriteFrames_ovybf")
+animation = &"Idle"
+frame = 3
+frame_progress = 0.140249
