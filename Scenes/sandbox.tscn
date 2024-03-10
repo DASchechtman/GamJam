@@ -1,20 +1,42 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvyyj76t4dvag"]
+[gd_scene load_steps=12 format=3 uid="uid://cvyyj76t4dvag"]
 
 [ext_resource type="Texture2D" uid="uid://dps5p04mwy4ej" path="res://icon.svg" id="1_7gxhl"]
+[ext_resource type="Script" path="res://Scripts/new_script.gd" id="1_l2klm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7m2yr"]
 size = Vector2(127, 127)
 
+[sub_resource type="Gradient" id="Gradient_ynlr5"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0cscg"]
+gradient = SubResource("Gradient_ynlr5")
+
+[sub_resource type="Gradient" id="Gradient_rakqt"]
+colors = PackedColorArray(2.99614e-06, 0.526791, 1.05888e-06, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_knopd"]
+gradient = SubResource("Gradient_rakqt")
+
+[sub_resource type="Gradient" id="Gradient_quavc"]
+colors = PackedColorArray(0, 0, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jih3x"]
+gradient = SubResource("Gradient_quavc")
+
+[sub_resource type="Gradient" id="Gradient_vux2r"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.534813, 0.425109, 0.744216, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2qcuv"]
+gradient = SubResource("Gradient_vux2r")
+
 [node name="Sandbox" type="Node2D"]
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-texture_filter = 1
-polygon = PackedVector2Array(0, 221, 0, 647, 1154, 647, 1154, 207, 1044, 207, 1044, 543, 662, 543, 660, 457, 496, 455, 494, 532, 133, 526, 130, 217)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(324, 0)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_l2klm")
 
 [node name="Icon" type="Sprite2D" parent="CharacterBody2D"]
 texture = ExtResource("1_7gxhl")
@@ -22,3 +44,39 @@ texture = ExtResource("1_7gxhl")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_7m2yr")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+texture_filter = 1
+polygon = PackedVector2Array(0, 217, 0, 647, 1154, 647, 1154, 207, 1044, 207, 1044, 543, 658, 532, 659, 456, 496, 455, 494, 532, 127, 532, 125, 219)
+
+[node name="TextureRect" type="TextureRect" parent="StaticBody2D"]
+offset_left = 3.0
+offset_top = 530.0
+offset_right = 1153.0
+offset_bottom = 647.0
+texture = SubResource("GradientTexture2D_0cscg")
+
+[node name="TextureRect2" type="TextureRect" parent="StaticBody2D"]
+offset_left = -3.0
+offset_top = 216.0
+offset_right = 126.0
+offset_bottom = 528.0
+texture = SubResource("GradientTexture2D_knopd")
+
+[node name="TextureRect3" type="TextureRect" parent="StaticBody2D"]
+offset_left = 1044.0
+offset_top = 206.0
+offset_right = 1153.0
+offset_bottom = 530.0
+texture = SubResource("GradientTexture2D_jih3x")
+
+[node name="TextureRect4" type="TextureRect" parent="StaticBody2D"]
+offset_left = 495.0
+offset_top = 455.0
+offset_right = 658.0
+offset_bottom = 530.0
+texture = SubResource("GradientTexture2D_2qcuv")
