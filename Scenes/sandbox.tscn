@@ -1,8 +1,24 @@
-[gd_scene format=3 uid="uid://cvyyj76t4dvag"]
+[gd_scene load_steps=3 format=3 uid="uid://cvyyj76t4dvag"]
+
+[ext_resource type="Texture2D" uid="uid://dps5p04mwy4ej" path="res://icon.svg" id="1_7gxhl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7m2yr"]
+size = Vector2(127, 127)
 
 [node name="Sandbox" type="Node2D"]
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-polygon = PackedVector2Array(0, 221, 0, 647, 1154, 647, 1154, 207, 1044, 207, 1044, 543, 662, 543, 660, 457, 496, 455, 494, 532, 130, 533, 130, 217)
+texture_filter = 1
+polygon = PackedVector2Array(0, 221, 0, 647, 1154, 647, 1154, 207, 1044, 207, 1044, 543, 662, 543, 660, 457, 496, 455, 494, 532, 133, 526, 130, 217)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(324, 0)
+
+[node name="Icon" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("1_7gxhl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_7m2yr")
